@@ -69,10 +69,10 @@ export function Footer() {
     <footer id="footer" className="scroll-mt-8 border-t border-white/[0.08] bg-black px-4 py-16 sm:px-5 sm:py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-[900px]">
         <div className="text-center">
-          <p className="font-[family-name:var(--font-sans)] text-[10px] font-semibold uppercase tracking-[0.42em] text-white/45">
+          <p className="font-[family-name:var(--font-sans)] text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
             Connect
           </p>
-          <p className="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.75rem,5vw,2.25rem)] leading-none tracking-[0.12em] text-white">
+          <p className="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.85rem,5.25vw,2.4rem)] leading-none tracking-[-0.018em] text-white">
             LEROCK
           </p>
           <div
@@ -91,7 +91,7 @@ export function Footer() {
               href={href}
               target={href.startsWith("mailto:") ? undefined : "_blank"}
               rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-[#0a0a0a] px-3.5 py-2.5 font-[family-name:var(--font-sans)] text-[9px] font-medium uppercase tracking-[0.22em] text-white/75 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:border-[#b22222] hover:text-white sm:px-4 sm:text-[10px] sm:tracking-[0.2em]"
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-[#0a0a0a] px-3.5 py-2.5 font-[family-name:var(--font-sans)] text-[9px] font-medium uppercase tracking-[0.14em] text-white/75 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-colors hover:border-[#b22222] hover:text-white sm:px-4 sm:text-[10px] sm:tracking-[0.14em]"
             >
               <Icon className="h-3.5 w-3.5 shrink-0 opacity-90 sm:h-4 sm:w-4" aria-hidden />
               {label}

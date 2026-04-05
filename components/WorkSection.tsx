@@ -27,7 +27,7 @@ export function WorkSection() {
       <div className="mx-auto max-w-[1600px]">
         <div className="mb-8 flex flex-col gap-3 sm:mb-10 sm:gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
           <div className="min-w-0">
-            <p className="font-[family-name:var(--font-sans)] text-[10px] font-semibold uppercase tracking-[0.45em] text-white/40">
+            <p className="font-[family-name:var(--font-sans)] text-[10px] font-semibold uppercase tracking-[0.16em] text-white/40">
               Work
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(1.65rem,6.5vw,3rem)] leading-[1.05] tracking-[0.04em] text-white">
@@ -48,12 +48,12 @@ export function WorkSection() {
               <ReelCard videoId={id1} label="Lerock reel — Short 1" />
             </div>
             <div className="flex w-full flex-col items-center justify-center rounded-[20px] border border-white/[0.1] bg-[#0c0c0c] px-4 py-6 text-center md:min-h-0 md:rounded-[24px] md:px-5 md:py-10">
-              <p className="font-[family-name:var(--font-display)] text-[clamp(1.35rem,4vw,1.75rem)] leading-[1.1] tracking-[0.06em] text-white">
+              <p className="font-[family-name:var(--font-display)] text-[clamp(1.35rem,4vw,1.75rem)] leading-[1.1] tracking-[-0.008em] text-white">
                 FULL SERVICE
                 <br />
                 AI VIDEO
               </p>
-              <p className="mt-4 font-[family-name:var(--font-display)] text-[11px] tracking-[0.2em] text-white/50 md:mt-5 md:text-xs md:tracking-[0.24em]">
+              <p className="mt-4 font-[family-name:var(--font-display)] text-[11px] tracking-[-0.012em] text-white/50 md:mt-5 md:text-xs md:tracking-[-0.015em]">
                 LEROCK
               </p>
             </div>

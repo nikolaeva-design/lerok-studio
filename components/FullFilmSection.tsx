@@ -53,7 +53,7 @@ export function FullFilmSection() {
 
           <div className="relative z-[4] flex min-h-[min(52svh,32rem)] flex-col items-center justify-end px-5 pb-8 pt-10 text-center sm:min-h-[min(62svh,40rem)] sm:pb-10 md:min-h-[min(78svh,900px)] md:px-10 md:pb-12 md:pt-14">
             <div className="max-w-[40rem]">
-              <p className="font-[family-name:var(--font-sans)] text-[10px] font-semibold uppercase tracking-[0.42em] text-white/60">
+              <p className="font-[family-name:var(--font-sans)] text-[10px] font-semibold uppercase tracking-[0.16em] text-white/60">
                 Full film
               </p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.75rem,4.5vw,2.85rem)] leading-[1.05] tracking-[0.04em] text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)]">
@@ -62,7 +62,7 @@ export function FullFilmSection() {
               <p className="mx-auto mt-4 max-w-full px-0.5 text-balance font-[family-name:var(--font-sans)] text-[11px] leading-tight text-white/90 sm:max-w-none sm:px-0 sm:text-sm sm:whitespace-nowrap">
                 Tap for full film with sound on YouTube — muted above.
               </p>
-              <span className="mt-6 inline-flex items-center justify-center gap-2.5 rounded-full border border-white/[0.28] bg-black/35 px-8 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-semibold uppercase tracking-[0.22em] text-white shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-colors group-hover:border-[#b22222] group-hover:bg-black/50">
+              <span className="mt-6 inline-flex items-center justify-center gap-2.5 rounded-full border border-white/[0.28] bg-black/35 px-8 py-3.5 font-[family-name:var(--font-sans)] text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-colors group-hover:border-[#b22222] group-hover:bg-black/50">
                 <IconPlay className="h-4 w-4 text-[#b22222]" />
                 Open on YouTube
               </span>

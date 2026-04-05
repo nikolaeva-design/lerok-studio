@@ -25,7 +25,7 @@ function IconClose({ className }: { className?: string }) {
 }
 
 const linkClassName =
-  "font-[family-name:var(--font-sans)] text-[10px] font-medium uppercase tracking-[0.28em] text-white/75 transition-colors hover:text-white";
+  "font-[family-name:var(--font-sans)] text-[10px] font-medium uppercase tracking-[0.14em] text-white/75 transition-colors hover:text-white";
 
 /** Top bar: Bebas wordmark + nav (drawer on small screens) */
 export function SiteHeader() {
@@ -36,7 +36,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-4 sm:px-5 sm:py-5 md:px-10 md:py-6">
         <Link
           href="#hero"
-          className="shrink-0 font-[family-name:var(--font-display)] text-xl leading-none tracking-[0.12em] text-white sm:text-2xl md:text-3xl"
+          className="shrink-0 font-[family-name:var(--font-display)] text-[1.35rem] leading-none tracking-[-0.015em] text-white sm:text-[1.6rem] md:text-[2rem]"
           onClick={() => setMenuOpen(false)}
         >
           LEROCK
