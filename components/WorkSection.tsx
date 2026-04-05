@@ -1,12 +1,13 @@
-import { getReelVideoIds } from "@/lib/site";
+import { getReelEmbedSrc, getReelVideoIds } from "@/lib/site";
 
-function ReelCard({ videoId }: { videoId: string }) {
-  const src = `https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&playsinline=1&iv_load_policy=3`;
+function ReelCard({ videoId, label }: { videoId: string; label: string }) {
+  const src = getReelEmbedSrc(videoId);
   return (
-    <div className="relative mx-auto aspect-[9/16] w-full max-w-[320px] overflow-hidden rounded-[20px] bg-[#0a0a0a] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] md:max-w-[360px] md:rounded-[24px]">
+    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[20px] bg-[#0a0a0a] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] md:mx-auto md:max-w-[360px] md:rounded-[24px]">
       <iframe
-        title="Lerock reel"
+        title={label}
         src={src}
+        loading="lazy"
         className="absolute inset-x-0 -top-12 h-[calc(100%+3rem)] w-full border-0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
@@ -40,23 +41,25 @@ export function WorkSection() {
           </p>
         </div>
 
-        {/* Mobile: reel → promo → reel (avoids cramped middle column + border bugs). Desktop: 3 columns. */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-5">
-          <div className="flex justify-center md:justify-end">
-            <ReelCard videoId={id1} />
-          </div>
-          <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center rounded-[20px] border border-white/[0.1] bg-[#0c0c0c] px-5 py-10 text-center md:mx-0 md:max-w-none md:min-h-0 md:rounded-[24px] md:py-14">
-            <p className="font-[family-name:var(--font-display)] text-[clamp(1.35rem,4vw,1.75rem)] leading-[1.15] tracking-[0.06em] text-white">
-              FULL SERVICE
-              <br />
-              AI VIDEO
-            </p>
-            <p className="mt-8 font-[family-name:var(--font-display)] text-[11px] tracking-[0.2em] text-white/50 md:text-xs md:tracking-[0.24em]">
-              LEROCK
-            </p>
-          </div>
-          <div className="flex justify-center md:justify-start">
-            <ReelCard videoId={id2} />
+        {/* Mobile: one shared width for reels + promo. Desktop: 3 columns. */}
+        <div className="mx-auto w-full max-w-[400px] md:max-w-none">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-5">
+            <div className="md:flex md:justify-end">
+              <ReelCard videoId={id1} label="Lerock reel — Short 1" />
+            </div>
+            <div className="flex w-full flex-col items-center justify-center rounded-[20px] border border-white/[0.1] bg-[#0c0c0c] px-4 py-6 text-center md:min-h-0 md:rounded-[24px] md:px-5 md:py-10">
+              <p className="font-[family-name:var(--font-display)] text-[clamp(1.35rem,4vw,1.75rem)] leading-[1.1] tracking-[0.06em] text-white">
+                FULL SERVICE
+                <br />
+                AI VIDEO
+              </p>
+              <p className="mt-4 font-[family-name:var(--font-display)] text-[11px] tracking-[0.2em] text-white/50 md:mt-5 md:text-xs md:tracking-[0.24em]">
+                LEROCK
+              </p>
+            </div>
+            <div className="md:flex md:justify-start">
+              <ReelCard videoId={id2} label="Lerock reel — Short 2" />
+            </div>
           </div>
         </div>
       </div>

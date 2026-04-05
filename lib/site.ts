@@ -15,6 +15,42 @@ export const HERO_YOUTUBE_ID = "H2bChXFp3ko";
 export const HERO_YOUTUBE_WATCH_URL = `https://www.youtube.com/watch?v=${HERO_YOUTUBE_ID}`;
 
 /**
+ * YouTube iframe params (embed quality is adaptive; player picks the best stream for the iframe size and network).
+ * Upload source at max quality in YouTube Studio — embed cannot force 1080p via URL.
+ */
+const EMBED_BASE: Record<string, string> = {
+  modestbranding: "1",
+  rel: "0",
+  playsinline: "1",
+  iv_load_policy: "3",
+  cc_load_policy: "0",
+  fs: "1",
+};
+
+/** Hero background loop — muted autoplay, minimal chrome. */
+export function getHeroEmbedSrc(): string {
+  const id = HERO_YOUTUBE_ID;
+  const q = new URLSearchParams({
+    ...EMBED_BASE,
+    autoplay: "1",
+    mute: "1",
+    loop: "1",
+    playlist: id,
+    controls: "0",
+  });
+  return `https://www.youtube.com/embed/${id}?${q.toString()}`;
+}
+
+/** Work section Shorts — below the fold; caller should set iframe loading="lazy". */
+export function getReelEmbedSrc(videoId: string): string {
+  const q = new URLSearchParams({
+    ...EMBED_BASE,
+    controls: "0",
+  });
+  return `https://www.youtube.com/embed/${videoId}?${q.toString()}`;
+}
+
+/**
  * YouTube Shorts IDs for the Work section reels.
  * Defaults:
  * - https://youtube.com/shorts/iamovCOEa_0

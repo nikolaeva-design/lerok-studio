@@ -7,6 +7,8 @@ const display = Bebas_Neue({
   variable: "--font-display",
   weight: "400",
   subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 /** Editorial serif accents */
@@ -14,13 +16,17 @@ const serif = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 /** UI & body */
 const sans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -44,6 +50,11 @@ export default function RootLayout({
       lang="en"
       className={`dark ${display.variable} ${serif.variable} ${sans.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://i.ytimg.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+      </head>
       <body className="min-h-full bg-[#030303] font-[family-name:var(--font-sans)] text-[var(--foreground)]">
         {children}
       </body>

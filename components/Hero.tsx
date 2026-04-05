@@ -1,24 +1,24 @@
-import { HERO_YOUTUBE_ID } from "@/lib/site";
+import { getHeroEmbedSrc } from "@/lib/site";
 
-/** Params: no deprecated showinfo; iv_load_policy=3 hides annotations. Quality is adaptive — sharpness depends on not upscaling the iframe (see below). */
-const embedSrc = `https://www.youtube.com/embed/${HERO_YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${HERO_YOUTUBE_ID}&controls=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3`;
+const heroEmbedSrc = getHeroEmbedSrc();
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="bg-black px-3 pb-6 pt-1 sm:px-4 sm:pb-8 sm:pt-2 md:px-8 md:pb-12 lg:px-10 lg:pb-14"
+      className="bg-black px-3 pb-4 pt-1 sm:px-4 sm:pb-8 sm:pt-2 md:px-8 md:pb-12 lg:px-10 lg:pb-14"
     >
       {/* Rounded filmstrip — min height scales with viewport so the frame feels full, not short */}
       <div className="relative mx-auto w-full max-w-[1600px] overflow-hidden rounded-[18px] bg-[#0a0a0a] shadow-[inset_0_0_120px_rgba(0,0,0,0.45)] sm:rounded-[22px] md:rounded-[32px]">
-        <div className="relative aspect-[16/9] min-h-[max(17.5rem,58svh)] w-full sm:min-h-[max(20rem,62svh)] md:min-h-[420px] lg:min-h-[520px]">
+        <div className="relative aspect-[16/9] min-h-[max(13.5rem,40svh)] w-full sm:min-h-[max(18rem,50svh)] md:min-h-[420px] lg:min-h-[520px]">
           <div className="absolute inset-0 overflow-hidden">
             {/* 1:1 fill, no CSS scale (keeps sharpness). Nudge embed up so YouTube’s top channel chip / pink dot is clipped. */}
             <iframe
               title="Lerock hero reel"
-              src={embedSrc}
+              src={heroEmbedSrc}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              loading="eager"
               className="pointer-events-none absolute inset-x-0 -top-12 h-[calc(100%+3rem)] w-full border-0"
             />
           </div>
@@ -52,7 +52,16 @@ export function Hero() {
             aria-hidden
           />
           <div
-            className="absolute inset-x-0 bottom-0 z-[2] h-[18%] bg-gradient-to-t from-black/60 to-transparent sm:h-[15%]"
+            className="absolute inset-x-0 bottom-0 z-[2] h-[20%] bg-gradient-to-t from-black/65 to-transparent sm:h-[15%] md:h-[18%]"
+            aria-hidden
+          />
+          {/* Mobile: narrow corners only — hides YouTube share/logo flash without darkening the whole frame */}
+          <div
+            className="pointer-events-none absolute bottom-0 left-0 z-[4] hidden h-[min(22%,120px)] w-[min(38%,200px)] bg-gradient-to-tr from-black/90 via-black/40 to-transparent max-md:block"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute bottom-0 right-0 z-[4] hidden h-[min(22%,120px)] w-[min(38%,200px)] bg-gradient-to-tl from-black/90 via-black/40 to-transparent max-md:block"
             aria-hidden
           />
           {/* Warm corner blooms — ties to reds in picture, adds volume */}
@@ -68,7 +77,7 @@ export function Hero() {
             className="pointer-events-none absolute -bottom-[10%] left-[15%] z-[2] h-[40%] w-[55%] rounded-full bg-[#450a0a]/[0.15] blur-[90px]"
             aria-hidden
           />
-          <div className="absolute inset-0 z-[3] flex flex-col items-center justify-center px-4 text-center sm:px-6">
+          <div className="absolute inset-0 z-[5] flex flex-col items-center justify-center px-4 text-center sm:px-6">
             <div className="relative w-full max-w-[min(90vw,42rem)]">
               <span className="font-[family-name:var(--font-display)] text-[clamp(2.5rem,calc(0.5rem+11vw),8.5rem)] leading-[0.9] tracking-[0.02em] text-white drop-shadow-[0_4px_40px_rgba(0,0,0,0.65)]">
                 LEROCK
