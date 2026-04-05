@@ -9,6 +9,14 @@ const siteBase = process.env.SITE_BASE?.replace(/\/$/, "") || "";
 
 const nextConfig: NextConfig = {
   output: "export",
+  // Static export has no Image Optimization API — required or `/_next/image` breaks in production.
+  images: {
+    unoptimized: true,
+  },
+  // Same value as `basePath`, inlined for client components that reference `public/` by URL (e.g. poster image).
+  env: {
+    NEXT_PUBLIC_SITE_BASE: siteBase,
+  },
   ...(siteBase ? { basePath: siteBase, assetPrefix: `${siteBase}/` } : {}),
 };
 

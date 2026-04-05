@@ -1,4 +1,5 @@
 import { Footer } from "@/components/Footer";
+import { FullFilmSection } from "@/components/FullFilmSection";
 import { Hero } from "@/components/Hero";
 import { SiteHeader } from "@/components/SiteHeader";
 import { WorkSection } from "@/components/WorkSection";
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <Hero />
         <WorkSection />
+        <FullFilmSection />
       </main>
       <Footer />
     </>
