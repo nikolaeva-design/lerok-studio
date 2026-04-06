@@ -51,17 +51,20 @@ export function getReelEmbedSrc(videoId: string): string {
 }
 
 /**
- * YouTube Shorts IDs for the Work section reels.
+ * YouTube Shorts IDs for the Work section (three columns).
  * Defaults:
  * - https://youtube.com/shorts/iamovCOEa_0
+ * - https://youtube.com/shorts/VZ3z3rerppk
  * - https://youtube.com/shorts/ggYoOCfye-c
- * Override with NEXT_PUBLIC_REEL_YOUTUBE_1 / _2 in `.env.local` if needed.
+ * Override with NEXT_PUBLIC_REEL_YOUTUBE_1 / _2 / _3 in `.env.local` if needed.
  */
 const DEFAULT_REEL_1 = "iamovCOEa_0";
-const DEFAULT_REEL_2 = "ggYoOCfye-c";
+const DEFAULT_REEL_2 = "VZ3z3rerppk";
+const DEFAULT_REEL_3 = "ggYoOCfye-c";
 
-export function getReelVideoIds(): [string, string] {
+export function getReelVideoIds(): [string, string, string] {
   const a = process.env.NEXT_PUBLIC_REEL_YOUTUBE_1?.trim() || DEFAULT_REEL_1;
   const b = process.env.NEXT_PUBLIC_REEL_YOUTUBE_2?.trim() || DEFAULT_REEL_2;
-  return [a, b];
+  const c = process.env.NEXT_PUBLIC_REEL_YOUTUBE_3?.trim() || DEFAULT_REEL_3;
+  return [a, b, c];
 }

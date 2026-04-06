@@ -3,21 +3,26 @@ import { getReelEmbedSrc, getReelVideoIds } from "@/lib/site";
 function ReelCard({ videoId, label }: { videoId: string; label: string }) {
   const src = getReelEmbedSrc(videoId);
   return (
-    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[20px] bg-[#0a0a0a] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] md:mx-auto md:max-w-[360px] md:rounded-[24px]">
-      <iframe
-        title={label}
-        src={src}
-        loading="lazy"
-        className="absolute inset-x-0 -top-12 h-[calc(100%+3rem)] w-full border-0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      />
+    <div className="w-full md:mx-auto md:max-w-[360px]">
+      <div className="rounded-[28px] bg-[#0c0c0c] p-2.5 shadow-[0_24px_60px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.06)] ring-1 ring-white/[0.09] sm:p-3">
+        {/* 9:16 aperture — iframe fills edge-to-edge; overflow clips to rounded rect (same curve as inner radius) */}
+        <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[22px] bg-black [clip-path:inset(0_round_22px)]">
+          <iframe
+            title={label}
+            src={src}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+      </div>
     </div>
   );
 }
 
 export function WorkSection() {
-  const [id1, id2] = getReelVideoIds();
+  const [id1, id2, id3] = getReelVideoIds();
 
   return (
     <section
@@ -41,24 +46,17 @@ export function WorkSection() {
           </p>
         </div>
 
-        {/* Mobile: one shared width for reels + promo. Desktop: 3 columns. */}
+        {/* Mobile: one shared width for reels. Desktop: 3 Shorts. */}
         <div className="mx-auto w-full max-w-[400px] md:max-w-none">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-5">
             <div className="md:flex md:justify-end">
               <ReelCard videoId={id1} label="Lerock reel — Short 1" />
             </div>
-            <div className="flex w-full flex-col items-center justify-center rounded-[20px] border border-white/[0.1] bg-[#0c0c0c] px-4 py-6 text-center md:min-h-0 md:rounded-[24px] md:px-5 md:py-10">
-              <p className="font-[family-name:var(--font-display)] text-[clamp(1.35rem,4vw,1.75rem)] leading-[1.1] tracking-[-0.008em] text-white">
-                FULL SERVICE
-                <br />
-                AI VIDEO
-              </p>
-              <p className="mt-4 font-[family-name:var(--font-display)] text-[11px] tracking-[-0.012em] text-white/50 md:mt-5 md:text-xs md:tracking-[-0.015em]">
-                LEROCK
-              </p>
+            <div className="md:flex md:justify-center">
+              <ReelCard videoId={id2} label="Lerock reel — Short 2" />
             </div>
             <div className="md:flex md:justify-start">
-              <ReelCard videoId={id2} label="Lerock reel — Short 2" />
+              <ReelCard videoId={id3} label="Lerock reel — Short 3" />
             </div>
           </div>
         </div>

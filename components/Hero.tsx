@@ -12,7 +12,7 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-[1600px] overflow-hidden rounded-[18px] bg-[#0a0a0a] shadow-[inset_0_0_120px_rgba(0,0,0,0.32)] sm:rounded-[22px] md:rounded-[32px]">
         <div className="relative aspect-[16/9] min-h-[max(13.5rem,40svh)] w-full sm:min-h-[max(18rem,50svh)] md:min-h-[420px] lg:min-h-[520px]">
           <div className="absolute inset-0 overflow-hidden">
-            {/* 1:1 fill, no CSS scale (keeps sharpness). Nudge embed up so YouTube’s top channel chip / pink dot is clipped. */}
+            {/* Muted autoplay everywhere; iOS may still block when Low Power Mode is on (OS policy). */}
             <iframe
               title="Lerock hero reel"
               src={heroEmbedSrc}
